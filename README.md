@@ -1,7 +1,7 @@
 # uScheduler
 
 ## usage
-
+- approximately 5us for skipping over NOT READY task on esp8266
 - use interval to set intervals between execution in milli seconds
 - use ```semaphore > 0``` to specify number of runs, ```semaphore = -1``` for infinity
 - each execution reduces semaphore by 1, and semahpore = 0 skips code execution

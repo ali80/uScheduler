@@ -1,16 +1,7 @@
+#ifndef USCHEDULER
+#define USCHEDULER
+
 #include "uScheduler_hal.h"
-
-
-typedef enum
-{
-//  USCH_STATE_READY = 0,
-  USCH_STATE_RUNNING = 1,
-  USCH_STATE_WAITING = 2,
-  USCH_STATE_BLOCKED = 3,
-  USCH_STATE_SUSPENDED = 4,
-  USCH_STATE_RAN
-
-}uScheduler_state_t;
 
 typedef enum
 {
@@ -26,7 +17,7 @@ class uScheduler
     uint32_t _nowtick;
     uint32_t _tickDiff;
     int _semaphore;
-    uScheduler_state_t _state;
+
     uScheduler_check_t tickCheck();
     uScheduler_check_t semCheck();
     void (*_callback)(void);
@@ -53,5 +44,7 @@ class uScheduler
       _semaphore = semaphore;
     }
 };
+
+#endif
 
 

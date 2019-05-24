@@ -14,7 +14,7 @@ void callback(void)
 task1 uScheduler(uint32_t interval, void (*callback)(void), int semaphore = -1);
 loop()
 {
-  task1.checkRun();
+  task1.checkRun();     //  check if the interval has past and semaphore !=0 run else skip
 }
 ```
 

@@ -44,7 +44,7 @@ uScheduler_check_t uScheduler::checkRun()
   {
     if (semCheck())
     {
-      _callback();
+      if (_callback != NULL) _callback();
       counter++;
       return USCH_CHECK_RUN;
     }

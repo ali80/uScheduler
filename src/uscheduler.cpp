@@ -1,10 +1,10 @@
 #include "uscheduler.h"
 
-uint32_t uScheduler::tick()
+uint32_t uScheduler::setInterval()
 {
   return _interval;
 }
-void uScheduler::tick(uint32_t tick)
+void uScheduler::setInterval(uint32_t tick)
 {
   _interval = tick;
 }
@@ -15,10 +15,15 @@ uScheduler_check_t uScheduler::tickCheck()
   if (_tickDiff >= _interval)
   {
     _tickPrev = _tickNow;
-    if (_tickDiff < (1<<31))         //  check for overflow on millis between two consecutive runs
+    if (_tickDiff < (1<<31))         //  check for overflow on millis between two consecutive runs happens every 49.7 days
     {
       return(USCH_CHECK_RUN);
     }
+    else
+    {
+      _tickPrev = 0;    //  !!! introduces error in timing after overflow
+    }
+
   }
   return USCH_CHECK_SKIP;
 }

@@ -25,7 +25,7 @@ loop()
     //  do something, no need to define seperate function
   }
 
-  // since no delay function is nessesary, add this so esp as some time to do background tasks
+  // since no delay function is nessesary, add this so esp has some time to do background tasks
   yield();
 }
 ```

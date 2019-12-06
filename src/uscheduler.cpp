@@ -44,7 +44,7 @@ uScheduler_check_t uScheduler::semCheck()
 
 uScheduler_check_t uScheduler::checkRun()
 {
-  _tickNow = millis();    //  this should be run as fast as possible to get most accurate tick
+  _tickNow = millis();    //  this should run as fast as possible to get most accurate tick
   if (tickCheck())
   {
     if (semCheck())

@@ -15,7 +15,7 @@ uScheduler_check_t uScheduler::tickCheck()
   if (_tickDiff >= _interval)
   {
     _tickPrev = _tickNow;
-    if (_tickDiff < (1<<31))         //  check for overflow on millis between two consecutive runs happens every 49.7 days
+    if (_tickDiff < (uint32_t)(1<<31))         //  check for overflow on millis between two consecutive runs happens every 49.7 days
     {
       return(USCH_CHECK_RUN);
     }

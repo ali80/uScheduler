@@ -36,6 +36,8 @@ class uScheduler
       _callback = callback;
 
     }
+
+    /// interval in ms
     void runLaterOnce(int interval)
     {
       _tickPrev = millis();
